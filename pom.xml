@@ -11,6 +11,7 @@
     <modules>
         <module>Java-Base</module>
         <module>DataStructure-Algorithm</module>
+        <module>Design-Pattern</module>
     </modules>
 
 
