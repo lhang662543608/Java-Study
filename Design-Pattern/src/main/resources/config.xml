@@ -3,4 +3,5 @@
     <!--<carName>factorymethod.car.factory.BMWFactory</carName>-->
     <carName>factorymethod.car.factory.BenzFactory</carName>
     <chartName>factorymethod.chart.factory.BarChartFactory</chartName>
+    <EFName>abstractfactory.factory.HaireFactory</EFName>
 </config>
