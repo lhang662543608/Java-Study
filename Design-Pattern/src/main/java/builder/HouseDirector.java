@@ -1,6 +1,8 @@
 package builder;
 
-//指挥者，这里去指定制作流程，返回产品
+/**
+ * 指挥者，这里去指定制作流程，返回产品
+ */
 public class HouseDirector {
 
     HouseBuilder houseBuilder = null;

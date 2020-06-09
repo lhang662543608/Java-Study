@@ -1,6 +1,8 @@
 package builder;
 
-//产品->Product
+/**
+ * 产品->Product
+ */
 public class House {
     private String baise;
     private String wall;

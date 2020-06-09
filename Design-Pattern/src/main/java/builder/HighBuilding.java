@@ -1,5 +1,8 @@
 package builder;
 
+/**
+ * 具体建造者
+ */
 public class HighBuilding extends HouseBuilder {
 
     @Override
