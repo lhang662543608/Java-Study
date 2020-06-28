@@ -31,5 +31,6 @@ hs_err_pid*
 *.iml
 # git忽略文件
 *.gitignore
+out/
 
 
