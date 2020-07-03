@@ -4,6 +4,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Blob;
+import java.util.Date;
 
 /**
  * @author lhang
@@ -13,12 +15,71 @@ import javax.persistence.Id;
 public class User {
     private int userID;
     private String userName;
+    private Date date;
+    //该属性值为： userID: userName
+    private String desc;
+    //大文本
+    private String content;
+    //图片
+    private Blob headImage;
 
     public User() {
     }
 
     public User(String userName) {
         this.userName = userName;
+    }
+
+
+    public User(String userName, Date date) {
+        this.userName = userName;
+        this.date = date;
+    }
+
+    public User(String userName, Date date, String content, Blob headImage) {
+        this.userName = userName;
+        this.date = date;
+        this.content = content;
+        this.headImage = headImage;
+    }
+
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    @Basic
+    @Column(name = "content")
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Basic
+    @Column(name = "headImage")
+    public Blob getHeadImage() {
+        return headImage;
+    }
+
+    public void setHeadImage(Blob headImage) {
+        this.headImage = headImage;
+    }
+
+    @Basic
+    @Column(name = "date")
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Id
@@ -67,6 +128,7 @@ public class User {
         return "User{" +
                 "userID=" + userID +
                 ", userName='" + userName + '\'' +
+                ", desc='" + desc + '\'' +
                 '}';
     }
 }

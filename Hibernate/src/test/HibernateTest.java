@@ -10,8 +10,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  * @author lhang
@@ -46,14 +49,43 @@ public class HibernateTest {
     }
 
     @Test
+    public void testBlob() throws Exception{
+//        User user = new User();
+//        InputStream stream = new FileInputStream("1.jpg");
+//        System.out.println(stream);
+//        Blob image = Hibernate.getLobCreator(session)
+//				              .createBlob(stream, stream.available());
+//
+//		user.setUserName("John");
+//		user.setDate(new Date());
+//		user.setHeadImage(image);
+//		session.save(user);
+
+        User user1 =  session.get(User.class, 1);
+        Blob image = user1.getHeadImage();
+
+        InputStream in = image.getBinaryStream();
+        System.out.println(in.available());
+    }
+
+    /**
+     * 会出现并发问题
+     * @throws InterruptedException
+     */
+    @Test
+    public void testIdGenerator() throws InterruptedException{
+        User user = new User("BB",new Date());
+        session.save(user);
+
+//		Thread.sleep(5000);
+    }
+
+    @Test
     public void testDoWork(){
         session.doWork(new Work() {
-
             @Override
             public void execute(Connection connection) throws SQLException {
-                System.out.println(connection);
-
-                //调用存储过程.
+                System.out.println( connection );
             }
         });
     }

@@ -1,11 +1,36 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="entity">
 
-    <class name="entity.User" table="User" schema="hibernate">
-        <id name="userID" column="userID" />
+    <class name="User" table="User" schema="hibernate">
+        <id name="userID" type="int">
+            <column name="userID"/>
+
+            <!--
+            <generator class="increment"/>
+            会出现并发问题
+            -->
+            <!--<generator class="identity"/>-->
+            <generator class="native"/>
+        </id>
         <property name="userName" column="userName"/>
+        <property name="date" type="time">
+            <column name="date"/>
+        </property>
+
+        <!-- 映射派生属性 -->
+        <property name="desc" formula="(select concat(userID,':',userName) from User u where u.userID=userID)"/>
+
+
+        <!--映射大对象-->
+        <!--若希望精确映射SQL类型，可以使用sql-type属性-->
+        <property name="content">
+            <column name="content" sql-type="mediumtext"/>
+        </property>
+        <property name="headImage">
+            <column name="headImage" sql-type="mediumblob"></column>
+        </property>
     </class>
 </hibernate-mapping>
