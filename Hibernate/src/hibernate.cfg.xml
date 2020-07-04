@@ -55,10 +55,13 @@
         <mapping resource="entity/n21/both/Order.hbm.xml"/>
 
         <mapping resource="entity/one2one/foreign/Department.hbm.xml"/>
-        <mapping resource="entity/one2one/foreign/Manager.hbm.xml"/>-->
+        <mapping resource="entity/one2one/foreign/Manager.hbm.xml"/>
 
         <mapping resource="entity/one2one/primary/Department.hbm.xml"/>
-        <mapping resource="entity/one2one/primary/Manager.hbm.xml"/>
+        <mapping resource="entity/one2one/primary/Manager.hbm.xml"/>-->
+
+        <mapping resource="entity/n2n/Category.hbm.xml"/>
+        <mapping resource="entity/n2n/Item.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
