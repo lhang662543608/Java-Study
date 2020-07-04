@@ -45,11 +45,14 @@
         <property name="jdbc.batch_size">30</property>
 
         <!--映射文件-->
-        <mapping resource="entity/User.hbm.xml"/>
+        <!--<mapping resource="entity/User.hbm.xml"/>
         <mapping resource="entity/Worker.hbm.xml"/>
 
         <mapping resource="entity/n21/Customer.hbm.xml"/>
-        <mapping resource="entity/n21/Order.hbm.xml"/>
+        <mapping resource="entity/n21/Order.hbm.xml"/>-->
+
+        <mapping resource="entity/n21/both/Customer.hbm.xml"/>
+        <mapping resource="entity/n21/both/Order.hbm.xml"/>
 
 
     </session-factory>
