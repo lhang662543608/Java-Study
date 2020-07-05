@@ -6,10 +6,10 @@
 
     <class name="entity.Employee" table="GG_EMPLOYEE">
     	
-    	<!--  
+    	<!--
     	<cache usage="read-write"/>
     	-->
-    		
+
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="native" />
