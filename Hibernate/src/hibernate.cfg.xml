@@ -58,10 +58,15 @@
         <mapping resource="entity/one2one/foreign/Manager.hbm.xml"/>
 
         <mapping resource="entity/one2one/primary/Department.hbm.xml"/>
-        <mapping resource="entity/one2one/primary/Manager.hbm.xml"/>-->
+        <mapping resource="entity/one2one/primary/Manager.hbm.xml"/>
 
         <mapping resource="entity/n2n/Category.hbm.xml"/>
         <mapping resource="entity/n2n/Item.hbm.xml"/>
+
+        <mapping resource="entity/inheritance/subclass/Person.hbm.xml"/>
+        <mapping resource="entity/inheritance/joined/subclass/Person.hbm.xml"/>-->
+        <mapping resource="entity/inheritance/union/subclass/Person.hbm.xml"/>
+
 
     </session-factory>
 </hibernate-configuration>
