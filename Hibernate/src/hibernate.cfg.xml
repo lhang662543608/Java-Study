@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://192.168.3.4:3306/hibernate</property>
+        <property name="connection.url">jdbc:mysql://192.168.3.4:3306/hibernate?useUnicode=true&amp;characterEncoding=utf8</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">lhang</property>
@@ -44,6 +44,7 @@
         <!-- 设定对数据库进行批量删除，批量更新和批量插入的时候的批次大小 -->
         <property name="jdbc.batch_size">30</property>
 
+
         <!--映射文件-->
         <!--<mapping resource="entity/User.hbm.xml"/>
         <mapping resource="entity/Worker.hbm.xml"/>
@@ -65,10 +66,13 @@
 
         <mapping resource="entity/inheritance/subclass/Person.hbm.xml"/>
         <mapping resource="entity/inheritance/joined/subclass/Person.hbm.xml"/>
-        <mapping resource="entity/inheritance/union/subclass/Person.hbm.xml"/>-->
+        <mapping resource="entity/inheritance/union/subclass/Person.hbm.xml"/>
 
         <mapping resource="entity/strategy/Customer.hbm.xml"/>
-        <mapping resource="entity/strategy/Order.hbm.xml"/>
+        <mapping resource="entity/strategy/Order.hbm.xml"/>-->
+
+        <mapping resource="entity/Department.hbm.xml"/>
+        <mapping resource="entity/Employee.hbm.xml"/>
 
 
     </session-factory>
