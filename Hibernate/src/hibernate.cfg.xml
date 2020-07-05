@@ -64,8 +64,11 @@
         <mapping resource="entity/n2n/Item.hbm.xml"/>
 
         <mapping resource="entity/inheritance/subclass/Person.hbm.xml"/>
-        <mapping resource="entity/inheritance/joined/subclass/Person.hbm.xml"/>-->
-        <mapping resource="entity/inheritance/union/subclass/Person.hbm.xml"/>
+        <mapping resource="entity/inheritance/joined/subclass/Person.hbm.xml"/>
+        <mapping resource="entity/inheritance/union/subclass/Person.hbm.xml"/>-->
+
+        <mapping resource="entity/strategy/Customer.hbm.xml"/>
+        <mapping resource="entity/strategy/Order.hbm.xml"/>
 
 
     </session-factory>
