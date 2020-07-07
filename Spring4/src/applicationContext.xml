@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+    <!--
+        通过setter方法配置bean的属性
+            class:bean的全类名，通过反射的方式在IOC容器中创建bean，所以要求bean中必须有无参的构造器
+            id:标识容器中的bean。id 唯一。
+     -->
+    <bean id="helloWorld" class="Spring4.beans.HelloWorld">
+        <property name="name" value="Jack"></property>
+    </bean>
+
+    <!--通过构造方法配置bean的属性-->
+    <bean class="Spring4.beans.Car" id="car">
+        <constructor-arg name="brand" value="Audi"></constructor-arg>
+        <!--如果字面值包含特殊字符，可以使用<![CDATA[]]>包裹起来-->
+        <!--属性值可以使用value子节点进行配置-->
+        <constructor-arg name="company">
+            <value><![CDATA[<shanghai^>]]]></value>
+        </constructor-arg>
+        <constructor-arg name="price" value="30000"></constructor-arg>
+    </bean>
+    <bean class="Spring4.beans.Car" id="car2">
+        <constructor-arg name="brand" value="BMW"></constructor-arg>
+        <constructor-arg name="company" value="Beijing"></constructor-arg>
+        <constructor-arg name="price" value="40000"></constructor-arg>
+        <constructor-arg name="maxSpeed" value="260"></constructor-arg>
+    </bean>
+    <bean class="Spring4.beans.Car" id="car3">
+        <constructor-arg name="brand" value="FuTe"></constructor-arg>
+        <constructor-arg name="company" value="zhengzhou"></constructor-arg>
+        <constructor-arg name="price" value="15000"></constructor-arg>
+    </bean>
+
+
+    <bean class="Spring4.beans.User" id="user">
+        <property name="userName" value="Tom"></property>
+        <property name="wifeName" value="July"></property>
+        <property name="car" ref="car"></property>
+        <!--为级联属性赋值：属性需要先初始化才可以为级联属性赋值，否则会有异常。和Struts2不同-->
+        <property name="car.maxSpeed" value="150"></property>
+    </bean>
+
+    <bean class="Spring4.beans.User" id="user2">
+        <constructor-arg name="userName" value="Jack"></constructor-arg>
+        <constructor-arg name="wifeName" value="Rose"></constructor-arg>
+        <!--<constructor-arg name="car" ref="car"></constructor-arg>-->
+        <!--测试赋值null-->
+        <constructor-arg name="car">
+            <null/>
+        </constructor-arg>
+    </bean>
+
+
+    <!--测试如何配置集合属性-->
+    <!--配置List属性值-->
+    <bean class="Spring4.beans.collections.User" id="user3">
+        <property name="userName" value="AA"></property>
+        <property name="wifeName" value="BB"></property>
+        <property name="cars">
+            <list>
+                <ref bean="car"></ref>
+                <ref bean="car2"></ref>
+                <ref bean="car3"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <!--配置Map属性值-->
+    <bean class="Spring4.beans.collections.Person" id="person">
+        <property name="userName" value="CC"></property>
+        <property name="wifeName" value="DD"></property>
+        <property name="cars">
+            <!--使用map节点及map的entry子节点配置map类型的成员变量-->
+            <map>
+                <entry key="car" value-ref="car"></entry>
+                <entry key="car2" value-ref="car2"></entry>
+                <entry key="car3" value-ref="car3"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <!--配置Properties属性值-->
+     <bean id="dataSource" class="Spring4.beans.collections.DataSource">
+        <property name="properties">
+            <!--使用props和prop子节点为Properties属性赋值-->
+            <props>
+                <prop key="user">123</prop>
+                <prop key="password">123456</prop>
+                <prop key="url">j</prop>
+                <prop key="driver">com.m</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--配置单例的集合bean，以供多个bean进行引用，需要导入util命名空间-->
+    <util:list id="cars">
+        <ref bean="car"/>
+        <ref bean="car2"/>
+        <ref bean="car3"/>
+    </util:list>
+
+    <bean id="user4" class="Spring4.beans.collections.User">
+        <property name="userName" value="EE"></property>
+        <property name="wifeName" value="FF"></property>
+        <property name="cars" ref="cars"></property>
+    </bean>
+
+    <!--通过p命名空间为bean的属性赋值,需要先导入p命名空间,相对于传统的方式更加简洁一些-->
+    <bean class="Spring4.beans.collections.User" id="user5" p:userName="GG" p:wifeName="HH" p:cars-ref="cars"></bean>
+
+</beans>
