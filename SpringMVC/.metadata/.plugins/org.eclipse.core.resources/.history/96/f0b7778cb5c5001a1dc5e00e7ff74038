@@ -1,0 +1,16 @@
+package mvc.views;
+@Component
+public class HelloView implements View{
+
+	@Override
+	public String getContentType() {
+		return "text/html";
+	}
+
+	@Override
+	public void render(Map<String, ?> model, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		response.getWriter().print("hello view, time: " + new Date());
+	}
+
+}

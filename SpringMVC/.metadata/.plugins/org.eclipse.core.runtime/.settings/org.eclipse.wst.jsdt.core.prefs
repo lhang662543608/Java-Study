@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+org.eclipse.wst.jsdt.core.codeComplete.camelCaseMatch=enabled
+org.eclipse.wst.jsdt.core.codeComplete.deprecationCheck=disabled
+org.eclipse.wst.jsdt.core.codeComplete.discouragedReferenceCheck=disabled
+org.eclipse.wst.jsdt.core.codeComplete.forbiddenReferenceCheck=enabled
+org.eclipse.wst.jsdt.core.codeComplete.suggestStaticImports=enabled

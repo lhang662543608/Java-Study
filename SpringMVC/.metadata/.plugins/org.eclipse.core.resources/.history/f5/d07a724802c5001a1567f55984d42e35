@@ -1,0 +1,5 @@
+package mvc.entities;
+
+public class User {
+
+}
