@@ -13,7 +13,7 @@ public class Car {
         System.out.println("car ... init...");
     }
 
-    public void detory() {
+    public void destroy() {
         System.out.println("car ... detory...");
     }
 
