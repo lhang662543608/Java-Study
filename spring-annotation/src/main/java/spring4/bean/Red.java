@@ -29,8 +29,4 @@ public class Red implements ApplicationContextAware,BeanNameAware,EmbeddedValueR
 		String resolveStringValue = resolver.resolveStringValue("你好 ${os.name} 我是 #{20*18}");
 		System.out.println("解析的字符串："+resolveStringValue);
 	}
-
-
-
-
 }

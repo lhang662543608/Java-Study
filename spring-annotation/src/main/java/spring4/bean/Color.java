@@ -16,7 +16,4 @@ public class Color {
 	public String toString() {
 		return "Color [car=" + car + "]";
 	}
-	
-	
-
 }
