@@ -1,0 +1,5 @@
+注意点：
+1、新增，修改，引入数据校验（前端，后端）
+2、删除，单个&批量
+3、 mybatis generator-xxMapper
+4、 ajax。 SpringMVC-@ResponseBody
