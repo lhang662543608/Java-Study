@@ -30,7 +30,7 @@
         <mapper.version>4.1.5</mapper.version>
 
         <!-- MySQL驱动版本号 -->
-        <mysql.version>5.1.37</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
     </properties>
 
     <dependencies>
@@ -92,7 +92,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.37</version>
+            <version>8.0.28</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
